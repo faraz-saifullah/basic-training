@@ -1,0 +1,165 @@
+{
+  "info": {
+    "_postman_id": "b027ae01-9f1b-489f-919f-4ef52822e922",
+    "name": "Star Wars API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Planets",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://swapi.co/api/planets/",
+          "protocol": "http",
+          "host": [
+            "swapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "planets",
+            ""
+          ]
+        },
+        "description": "Planets API from SWAPI including all the information about Planets."
+      },
+      "response": []
+    },
+    {
+      "name": "People",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://swapi.co/api/people/",
+          "protocol": "https",
+          "host": [
+            "swapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "people",
+            ""
+          ]
+        },
+        "description": "People API from SWAPI includes all the information about People."
+      },
+      "response": []
+    },
+    {
+      "name": "Films",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://swapi.co/api/starships/",
+          "protocol": "https",
+          "host": [
+            "swapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "starships",
+            ""
+          ]
+        },
+        "description": "Films API from SWAPI includes all the information about Films."
+      },
+      "response": []
+    },
+    {
+      "name": "Starships",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://swapi.co/api/starships/",
+          "protocol": "https",
+          "host": [
+            "swapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "starships",
+            ""
+          ]
+        },
+        "description": "Starships API from SWAPI includes all the information about Starrships."
+      },
+      "response": []
+    },
+    {
+      "name": "Vehicles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://swapi.co/api/vehicles/",
+          "protocol": "https",
+          "host": [
+            "swapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "vehicles",
+            ""
+          ]
+        },
+        "description": "Vwhicles API from SWAPI includes all the information about Vehicles"
+      },
+      "response": []
+    },
+    {
+      "name": "Species",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://swapi.co/api/species/",
+          "protocol": "https",
+          "host": [
+            "swapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "species",
+            ""
+          ]
+        },
+        "description": "Species API from SWAPI includes all the information about Species"
+      },
+      "response": []
+    }
+  ]
+}
