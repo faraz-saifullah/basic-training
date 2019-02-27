@@ -2,16 +2,20 @@ firstName.onblur = function errorMessage() {
     if (firstName.value.length == 0)
         errorMessageFirstName.style.display = 'block';
 }
+
 firstName.onfocus = function hide() {
     errorMessageFirstName.style.display = 'none';
 }
+
 lastName.onblur = function errorMessage() {
     if (lastName.value.length == 0)
         errorMessageLastName.style.display = 'block';
 }
+
 lastName.onfocus = function hide() {
     errorMessageLastName.style.display = 'none';
 }
+
 company.onblur = function errorMessage() {
     if (company.value.length == 0)
         errorMessageCompany.style.display = 'block';
@@ -20,6 +24,7 @@ company.onblur = function errorMessage() {
 company.onfocus = function hide() {
     errorMessageCompany.style.display = 'none';
 }
+
 email.onblur = function errorMessage() {
     let pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.value.length == 0) {
@@ -28,28 +33,34 @@ email.onblur = function errorMessage() {
         errorInvalidEmail.style.display = 'block';
     }
 }
+
 email.onfocus = function hide() {
     errorMessageEmail.style.display = 'none';
     errorInvalidEmail.style.display = 'none';
 }
+
 areaCode.onblur = function errorMessage() {
     // body...
     if (areaCode.value.length == 0) {
-      errorMessageAreaCode.style.display = 'block';
+        errorMessageAreaCode.style.display = 'block';
     }
 }
+
 areaCode.onfocus = function hide() {
     errorMessageAreaCode.style.display = 'none';
 }
+
 phone.onblur = function errorMessage() {
     // body...
-    if (phone.value.length == 0 || !phone.value.match([0-90-90-90-90-90-90-90-90-90-9])) {
-      errorMessagePhone.style.display = 'block';
+    if (phone.value.length == 0 || !phone.value.match([0 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 9])) {
+        errorMessagePhone.style.display = 'block';
     }
 }
+
 phone.onfocus = function hide() {
     errorMessagePhone.style.display = 'none';
 }
+
 function checkAgain() {
     if (firstName.value.length == 0 || lastName.value.length == 0 || email.value.length == 0 || company.value.length == 0 || areaCode.value.length == 0 || phone.value.length == 0 || errorInvalidEmail.style.display == 'block') {
         errorMessageFirstName.style.display = 'block';
