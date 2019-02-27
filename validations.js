@@ -40,7 +40,6 @@ email.onfocus = function hide() {
 }
 
 areaCode.onblur = function errorMessage() {
-    // body...
     if (areaCode.value.length == 0) {
         errorMessageAreaCode.style.display = 'block';
     }
@@ -51,7 +50,6 @@ areaCode.onfocus = function hide() {
 }
 
 phone.onblur = function errorMessage() {
-    // body...
     if (phone.value.length == 0 || !phone.value.match([0 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 9])) {
         errorMessagePhone.style.display = 'block';
     }
