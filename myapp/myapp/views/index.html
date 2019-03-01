@@ -1,9 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title></title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <title>Registration Form</title>
+
 </head>
+
 <body>
-<p>Hey</p>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Event Registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" id="form">
+                        <div class="form-row m-b-55">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="first_name" id="firstName">
+                                            <label class="label--desc">first name</label>
+                                            <p class="label--desc" style="display: none; color: red;" id="errorMessageFirstName"><br> This field cant be empty!</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="last_name" id="lastName">
+                                            <label class="label--desc">last name</label>
+                                            <p class="label--desc" style="display: none; color: red;" id="errorMessageLastName"><br> This field can not be empty!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="email" id="email">
+                                    <p class="label--desc" style="display: none; color: red;" id="errorMessageEmail"><br> This field can not be empty!</p>
+                                    <p class="label--desc" style="display: none; color: red;" id="errorInvalidEmail"><br>Invalid Email Address!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="email" id="password">
+                                    <p class="label--desc" style="display: none; color: red;" id="errorMessagePassword"><br> This field can not be empty!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row m-b-55">
+                            <div class="name">Phone</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="phone" id="phone">
+                                            <label class="label--desc">Phone Number</label>
+                                            <p class="label--desc" style="display: none; color: red;" id="errorMessagePhone"><br> Invalid phone number!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="button" onclick="checkAgain()">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/validations.js"></script>
 </body>
+
 </html>
