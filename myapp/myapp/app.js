@@ -5,10 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var engines = require('consolidate');
 var bodyParser = require('body-parser');
-var pg = require('pg');
-var connection = "postgres://postgres:rails@localhost:5432/test_my_api";
-var client = new pg.Client(connection);
-client.connect();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
