@@ -2,13 +2,10 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var session = require('express-session');
-
 var engines = require('consolidate');
 var bodyParser = require('body-parser');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
 var app = express();
 app.use(bodyParser.urlencoded({
   extended: true
@@ -24,6 +21,5 @@ app.use(session({
 }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
 
 module.exports = app;
