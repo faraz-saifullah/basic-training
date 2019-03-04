@@ -34,9 +34,9 @@ router.post('/', function(req, res, next) {
 });
 router.get('/info', function(req, res, next) {
   if(!req.session.user) {
-    return res.status(401).send("Unauthorized");
+    return res.send("Unauthorized");
   } else {
-    return res.status(200).json(req.session.user );
+    return res.json(req.session.user);
   }
 });
 
