@@ -1,20 +1,40 @@
-firstName.onblur = function errorMessage() {
-    if (firstName.value.length == 0)
-        errorMessageFirstName.style.display = 'block';
+login.onclick = function displayLoginForm() {
+    loginForm.style.display = 'block';
+    signupForm.style.display = 'none';
 }
 
-firstName.onfocus = function hide() {
-    errorMessageFirstName.style.display = 'none';
+signup.onclick = function displaySignupForm() {
+    signupForm.style.display = 'block';
+    loginForm.style.display = 'none';
 }
 
-lastName.onblur = function errorMessage() {
-    if (lastName.value.length == 0)
-        errorMessageLastName.style.display = 'block';
+name.onblur = function errorMessage() {
+    if (name.value.length == 0)
+        errorMessageName.style.display = 'block';
 }
 
-lastName.onfocus = function hide() {
-    errorMessageLastName.style.display = 'none';
+name.onfocus = function hide() {
+    errorMessageName.style.display = 'none';
 }
+
+usernameSignup.onblur = function errorMessage() {
+    if (usernameSignup.value.length == 0)
+        errorMessageUsernameSignup.style.display = 'block';
+}
+
+usernameSignup.onfocus = function hide() {
+    errorMessageUsernameSignup.style.display = 'none';
+}
+
+usernameLogin.onblur = function errorMessage() {
+    if (usernameLogin.value.length == 0)
+        errorMessageUsernameLogin.style.display = 'block';
+}
+
+usernameLogin.onfocus = function hide() {
+    errorMessageUsernameLogin.style.display = 'none';
+}
+
 
 email.onblur = function errorMessage() {
     let pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -40,26 +60,21 @@ phone.onfocus = function hide() {
     errorMessagePhone.style.display = 'none';
 }
 
-password.onblur = function errorMessage() {
-    if (password.value.length == 0) {
-        errorMessagePassword.style.display = 'block';
+passwordSignup.onblur = function errorMessage() {
+    if (passwordSignup.value.length == 0) {
+        errorMessagePasswordSignup.style.display = 'block';
+    }
+}
+
+passwordSignup.onfocus = function hide() {
+    errorMessagePasswordSignup.style.display = 'none';
+}
+passwordLogin.onblur = function errorMessage() {
+    if (passwordLogin.value.length == 0) {
+        errorMessagePasswordLogin.style.display = 'block';
     }
 }
 
 password.onfocus = function hide() {
-    errorMessagePassword.style.display = 'none';
-}
-
-function checkAgain() {
-    if (firstName.value.length == 0 || lastName.value.length == 0 || email.value.length == 0 || company.value.length == 0 || areaCode.value.length == 0 || phone.value.length == 0 || errorInvalidEmail.style.display == 'block') {
-        errorMessageFirstName.style.display = 'block';
-        errorMessageLastName.style.display = 'block';
-        errorMessageCompany.style.display = 'block';
-        errorMessageEmail.style.display = 'block';
-        errorMessageAreaCode.style.display = 'block';
-        errorMessagePhone.style.display = 'block';
-
-    } else {
-        document.getElementById('form').submit();
-    }
+    errorMessagePasswordLogin.style.display = 'none';
 }

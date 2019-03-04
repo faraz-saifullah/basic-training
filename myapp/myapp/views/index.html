@@ -14,26 +14,26 @@
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Event Registration Form</h2>
+                    <h2 class="title">Simple Form</h2>
                 </div>
-                <div class="card-body">
-                    <form method="POST" id="form">
+                <div class="card-body" id="signupForm" style="display: none;">
+                    <form method="POST" id="sform" action="/users">
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name" id="firstName">
-                                            <label class="label--desc">first name</label>
-                                            <p class="label--desc" style="display: none; color: red;" id="errorMessageFirstName"><br> This field cant be empty!</p>
+                                            <input class="input--style-5" type="text" id="name" name="name">
+                                            <label class="label--desc">name</label>
+                                            <p class="label--desc" style="display: none; color: red;" id="errorMessageName"><br> This field cant be empty!</p>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name" id="lastName">
-                                            <label class="label--desc">last name</label>
-                                            <p class="label--desc" style="display: none; color: red;" id="errorMessageLastName"><br> This field can not be empty!</p>
+                                            <input class="input--style-5" type="text" id="usernameSignup" name="usernameSignup">
+                                            <label class="label--desc">username</label>
+                                            <p class="label--desc" style="display: none; color: red;" id="errorMessageUsernameSignup"><br> This field can not be empty!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email" id="email">
+                                    <input class="input--style-5" type="email" id="email" name="email">
                                     <p class="label--desc" style="display: none; color: red;" id="errorMessageEmail"><br> This field can not be empty!</p>
                                     <p class="label--desc" style="display: none; color: red;" id="errorInvalidEmail"><br>Invalid Email Address!</p>
                                 </div>
@@ -53,8 +53,8 @@
                             <div class="name">Password</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email" id="password">
-                                    <p class="label--desc" style="display: none; color: red;" id="errorMessagePassword"><br> This field can not be empty!</p>
+                                    <input class="input--style-5" type="text" id="passwordSignup" name="passwordSignup">
+                                    <p class="label--desc" style="display: none; color: red;" id="errorMessagePasswordSignup"><br> This field can not be empty!</p>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                 <div class="row row-refine">
                                     <div class="col-9">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="phone" id="phone">
+                                            <input class="input--style-5" type="text" id="phone" name="phone">
                                             <label class="label--desc">Phone Number</label>
                                             <p class="label--desc" style="display: none; color: red;" id="errorMessagePhone"><br> Invalid phone number!</p>
                                         </div>
@@ -73,10 +73,47 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="button" onclick="checkAgain()">Register</button>
+                            <button class="btn btn--radius-2 btn--red" type="submit" id="submitSignup">SIGNUP</button>
                         </div>
                     </form>
                 </div>
+                <div class="card-body" id="loginForm" style="display: none;">
+                    <form method="GET" id="lform" action="/users">
+                        <div class="form-row m-b-55">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="usernameLogin" id="usernameLogin">
+                                        <label class="label--desc">username</label>
+                                        <p class="label--desc" style="display: none; color: red;" id="errorMessageUsernameLogin"><br> This field cant be empty!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="passwordLogin" id="passwordLogin">
+                                    <p class="label--desc" style="display: none; color: red;" id="errorMessagePasswordLogin"><br> This field can not be empty!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit" id="submitLogin">LOGIN</button>
+                        </div>
+                    </form>
+                </div>
+                <br><br>
+                <center>
+                    <button class="btn btn--radius-2 btn--red" type="button" id="login">Login</button>
+                </center>
+                <br><br>
+                <center>
+                    <button class="btn btn--radius-2 btn--red" type="button" id="signup">Signup</button>
+                </center>
+                <br><br>
             </div>
         </div>
     </div>
