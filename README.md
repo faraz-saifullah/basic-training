@@ -10,6 +10,7 @@ SIMPLE BILL GENERATOR is a simple app that generates bill for a shopping transac
 ## Installation
 
   - Clone this using git clone.
+  or
   - Download zip file
 
 ## Features
