@@ -1,32 +1,41 @@
-food = ['chocolate', 'chocolates', 'chocolate bar', 'chocolate bars', 'box of chocolates', 'boxes of chocolates', 'boxes of chocolate'];
-medicine = ['packet of headache pills', 'packets of headache pills', 'pills', 'headache pills', 'pill'];
-book = ['book', 'books'];
-var express = require('express');
-var controller =  function (items,res) {
+const food = [`chocolate`, `chocolates`, `chocolate bar`, `chocolate bars`, `box of chocolates`, `boxes of chocolates`, `boxes of chocolate`];
+const medicine = [`packet of headache pills`, `packets of headache pills`, `pills`, `headache pills`, `pill`];
+const book = [`book`, `books`];
+const express = require(`express`);
+const controller =  function (items,res) {
   if (items[0].length == 0) {
-    res.render('index.html');
-  } else if(IsJsonString(items)) {
+    res.render(`index.html`);
+  } else if((items) => {
+    try {
+      JSON.parse(str);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }) {
     items = JSON.parse(items);
-    var finalReply = items.name +':\n';
-    for(var i = 0, tax = 0, total = 0; i < items.items.length; i++) {
-      var item = items.items[i];
-      var finalPrice = item.quantity * item.price;
-      var salesTax = 0;
-      var reply = item.quantity + ' ';
+    let finalReply = `${items.name} :\n`;
+    let tax = 0;
+    let total = 0;
+    for(let i = 0; i < items.items.length; i++) {
+      let item = items.items[i];
+      let finalPrice = item.quantity * item.price;
+      let salesTax = 0;
+      let reply = `${item.quantity}`;
       if(item.imported == true) {
         salesTax = salesTax + (finalPrice * 0.05);
-        reply = reply + 'imported '; 
+        reply = `${reply}  imported `; 
       }
-      if(!(item.category == 'food' || item.category == 'medical' || item.category == 'books')) {
+      if(!(item.category == `food` || item.category == `medical` || item.category == `books`)) {
         salesTax = salesTax + (finalPrice * 0.1);
       }
       finalPrice = (finalPrice + salesTax).toFixed(2);
       total = Number(total) + Number(finalPrice);
       tax = (Number(tax) + Number(salesTax)).toFixed(2);
-      reply = reply + item.name + ': ' + finalPrice + '\n';
+      reply = `${reply} ${item.name}: ${finalPrice} \n`;
       finalReply = finalReply + reply;
     }
-    finalReply = finalReply + 'Sales Taxes: ' + tax + '\n' + 'Total: ' + total + '\n';
+    finalReply = `${finalReply}Sales Taxes: ${tax} \nTotal: ${total}\n`;
     res.write(finalReply);
     res.end();
   } else {
@@ -34,29 +43,20 @@ var controller =  function (items,res) {
   }
 }
 
-function IsJsonString(str) {
-  try {
-    JSON.parse(str);
-  } catch (e) {
-    return false;
-  }
-  return true;
-}
-
 function calcPrice(items, index, tax, total, res) {
   if(items[index] != undefined) {
-    var item = items[index];
-    var price = Number(item.split(/ at /)[1]);
-    var quantity = Number(item.split(" ")[0]);
-    var product = item.slice(1, -8);
-    var imported = product.includes("imported");
-    product = product.replace(/imported /g, '');
+    let item = items[index];
+    let price = Number(item.split(/ at /)[1]);
+    let quantity = Number(item.split(` `)[0]);
+    let product = item.slice(1, -8);
+    let imported = product.includes(`imported`);
+    product = product.replace(/imported /g, ``);
     product = product.trim();
-    var isFood = checkFood(product);
-    var isMedicine = checkMedicine(product);
-    var isBook = checkBook(product);
-    var finalPrice = quantity * price;
-    var salesTax = 0;
+    let isFood = (product) => {return food.includes(product);};
+    let isMedicine = (product) => {return medicine.includes(product);};
+    let isBook = (product) => {return book.includes(product);};
+    let finalPrice = quantity * price;
+    let salesTax = 0;
     if(imported) {
       salesTax = salesTax + (finalPrice * 0.05);
     }
@@ -64,27 +64,15 @@ function calcPrice(items, index, tax, total, res) {
       salesTax = salesTax + (finalPrice * 0.1);
     }
     finalPrice = (finalPrice + salesTax).toFixed(2);
-    item = item.replace(/ at /,": ");
+    item = item.replace(/ at /,`: `);
     item = item.replace(price,finalPrice);
-    res.write(item+"\n");
+    res.write(`${item}\n`);
     calcPrice(items, index + 1, tax + salesTax, total + Number(finalPrice), res);
   } else {
     tax = Number(tax).toFixed(2);
-    res.write("Sales Taxes: " + tax + "\nTotal: " + total + "\n");
+    res.write(`Sales Taxes: ${tax}\nTotal: ${total.toFixed(2)}\n`);
     res.end();
   }
-}
-
-function checkFood(item) {
-  return food.includes(item);
-}
-
-function checkMedicine(item) {
-  return medicine.includes(item);
-}
-
-function checkBook(item) {
-  return book.includes(item);
 }
 
 module.exports = controller;
