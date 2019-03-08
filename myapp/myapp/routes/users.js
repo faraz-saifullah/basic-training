@@ -28,8 +28,8 @@ router.post('/', function(req, res, next) {
   let email = userData.email;
   let password = userData.passwordSignup;
   let phone = Number(userData.phone);
-  client.query('INSERT INTO userData (firstname, lastname, email, password, phone) VALUES ( $1, $2, $3, $4, $5)',[firstname, lastname, email, password, phone]);
-  console.log(userData);
+  client.query(`INSERT INTO userData (firstname, lastname, email, password, phone) VALUES ( '${firstname}', '${lastname}', '${email}', '${password}', ${phone});`);
+
   res.render('index.html');
 });
 router.get('/info', function(req, res, next) {

@@ -1,80 +1,80 @@
-login.onclick = function displayLoginForm() {
-    loginForm.style.display = 'block';
-    signupForm.style.display = 'none';
+login.onclick = () => {
+    loginForm.style.display = `block`;
+    signupForm.style.display = `none`;
 }
 
-signup.onclick = function displaySignupForm() {
-    signupForm.style.display = 'block';
-    loginForm.style.display = 'none';
+signup.onclick = () => {
+    signupForm.style.display = `block`;
+    loginForm.style.display = `none`;
 }
 
-name.onblur = function errorMessage() {
+name.onblur = () => {
     if (name.value.length == 0)
-        errorMessageName.style.display = 'block';
+        errorMessageName.style.display = `block`;
 }
 
-name.onfocus = function hide() {
-    errorMessageName.style.display = 'none';
+name.onfocus = () => {
+    errorMessageName.style.display = `none`;
 }
 
-usernameSignup.onblur = function errorMessage() {
+usernameSignup.onblur = () => {
     if (usernameSignup.value.length == 0)
-        errorMessageUsernameSignup.style.display = 'block';
+        errorMessageUsernameSignup.style.display = `block`;
 }
 
-usernameSignup.onfocus = function hide() {
-    errorMessageUsernameSignup.style.display = 'none';
+usernameSignup.onfocus = () => {
+    errorMessageUsernameSignup.style.display = `none`;
 }
 
-usernameLogin.onblur = function errorMessage() {
+usernameLogin.onblur = () => {
     if (usernameLogin.value.length == 0)
-        errorMessageUsernameLogin.style.display = 'block';
+        errorMessageUsernameLogin.style.display = `block`;
 }
 
-usernameLogin.onfocus = function hide() {
-    errorMessageUsernameLogin.style.display = 'none';
+usernameLogin.onfocus = () => {
+    errorMessageUsernameLogin.style.display = `none`;
 }
 
 
-email.onblur = function errorMessage() {
+email.onblur = () => {
     let pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.value.length == 0) {
-        errorMessageEmail.style.display = 'block';
+        errorMessageEmail.style.display = `block`;
     } else if (!pattern.test(email.value)) {
-        errorInvalidEmail.style.display = 'block';
+        errorInvalidEmail.style.display = `block`;
     }
 }
 
-email.onfocus = function hide() {
-    errorMessageEmail.style.display = 'none';
-    errorInvalidEmail.style.display = 'none';
+email.onfocus = () => {
+    errorMessageEmail.style.display = `none`;
+    errorInvalidEmail.style.display = `none`;
 }
 
-phone.onblur = function errorMessage() {
+phone.onblur = () => {
     if (phone.value.length == 0 || !phone.value.match([0 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 90 - 9])) {
-        errorMessagePhone.style.display = 'block';
+        errorMessagePhone.style.display = `block`;
     }
 }
 
-phone.onfocus = function hide() {
-    errorMessagePhone.style.display = 'none';
+phone.onfocus = () => {
+    errorMessagePhone.style.display = `none`;
 }
 
-passwordSignup.onblur = function errorMessage() {
+passwordSignup.onblur = () => {
     if (passwordSignup.value.length == 0) {
-        errorMessagePasswordSignup.style.display = 'block';
+        errorMessagePasswordSignup.style.display = `block`;
     }
 }
 
-passwordSignup.onfocus = function hide() {
-    errorMessagePasswordSignup.style.display = 'none';
+passwordSignup.onfocus = () => {
+    errorMessagePasswordSignup.style.display = `none`;
 }
-passwordLogin.onblur = function errorMessage() {
+passwordLogin.onblur = () => {
     if (passwordLogin.value.length == 0) {
-        errorMessagePasswordLogin.style.display = 'block';
+        errorMessagePasswordLogin.style.display = `block`;
     }
 }
 
-password.onfocus = function hide() {
-    errorMessagePasswordLogin.style.display = 'none';
+password.onfocus = () => {
+    errorMessagePasswordLogin.style.display = `none`;
 }
