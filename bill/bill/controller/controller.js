@@ -1,7 +1,9 @@
-const food = [`chocolate`, `chocolates`, `chocolate bar`, `chocolate bars`, `box of chocolates`, `boxes of chocolates`, `boxes of chocolate`];
-const medicine = [`packet of headache pills`, `packets of headache pills`, `pills`, `headache pills`, `pill`];
+`use strict`;
 const book = [`book`, `books`];
 const express = require(`express`);
+const food = [`chocolate`, `chocolates`, `chocolate bar`, `chocolate bars`, `box of chocolates`, `boxes of chocolates`, `boxes of chocolate`];
+const medicine = [`packet of headache pills`, `packets of headache pills`, `pills`, `headache pills`, `pill`];
+
 const controller =  function (items,res) {
   if (items[0].length == 0) {
     res.render(`index.html`);
@@ -14,25 +16,26 @@ const controller =  function (items,res) {
     return true;
   }) {
     items = JSON.parse(items);
-    let finalReply = `${items.name} :\n`;
+    let {name, ...rest} = items;
+    let finalReply = `${name} :\n`;
     let tax = 0;
     let total = 0;
-    for(let i = 0; i < items.items.length; i++) {
-      let item = items.items[i];
-      let finalPrice = item.quantity * item.price;
+    for(let item of rest.items) {
+      let {name, category, quantity, price, ...rest} = item;
+      let finalPrice = quantity * price;
       let salesTax = 0;
-      let reply = `${item.quantity}`;
-      if(item.imported == true) {
+      let reply = `${quantity}`;
+      if(rest.imported == true) {
         salesTax = salesTax + (finalPrice * 0.05);
         reply = `${reply}  imported `; 
       }
-      if(!(item.category == `food` || item.category == `medical` || item.category == `books`)) {
+      if(!(category == `food` || category == `medical` || category == `books`)) {
         salesTax = salesTax + (finalPrice * 0.1);
       }
       finalPrice = (finalPrice + salesTax).toFixed(2);
       total = Number(total) + Number(finalPrice);
       tax = (Number(tax) + Number(salesTax)).toFixed(2);
-      reply = `${reply} ${item.name}: ${finalPrice} \n`;
+      reply = `${reply} ${name}: ${finalPrice} \n`;
       finalReply = finalReply + reply;
     }
     finalReply = `${finalReply}Sales Taxes: ${tax} \nTotal: ${total}\n`;
