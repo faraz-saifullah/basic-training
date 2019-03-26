@@ -14,7 +14,6 @@ exports.itemDetails = async function(name, category, imported, quantity, price, 
   let Query = `INSERT INTO cartdetails (orderid, item, category, imported, price, quantity, tax, cost) VALUES (${orderId}, '${name}', '${category}', ${imported}, ${price}, ${quantity}, ${salesTax}, ${finalPrice});`;
   client.query(Query,function(err, result) {
     Query = `update orderlogs set total = total + ${finalPrice}, totaltax = totaltax + ${salesTax} where orderid = ${orderId};`;
-    console.log(Query);
     client.query(Query, function(err, result) {
       if(result) {
         console.log("");
